@@ -1,0 +1,131 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.nav {
+  padding: 15px 10px;
+  transition: all 200ms ease-in-out;
+}
+
+.header {
+  &.open {
+    .header__toggle {
+      > span:first-child {
+        transform: rotate(45deg);
+      }
+
+      > span:nth-child(2) {
+        opacity: 0;
+      }
+
+      > span:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+
+    .overlay {
+      display: block;
+      box-shadow: 0 -1px 2px -1px $light-gray, 0 1px 1px -1px $light-gray;
+    }
+  }
+
+  &__logo {
+    flex: 1;
+    color: $green;
+    height: fit-content;
+
+    @include breakpoint-down(md) {
+      justify-content: center;
+    }
+  }
+
+  &__toggle {
+    flex: 1;
+
+    > span {
+      background-color: $black;
+      display: block;
+      height: 3px;
+      width: 33px;
+      transition: all 200ms ease-in-out;
+      transform-origin: 8px 2px;
+
+      &:not(:last-child) {
+        margin-bottom: 3px;
+      }
+    }
+  }
+
+  &__links {
+    a {
+      font-size: 1rem;
+      color: $black;
+      padding: 0 2.375rem;
+      font-size: $font-sm;
+
+      &:hover {
+        ::before {
+          content: "";
+        }
+      }
+    }
+  }
+
+  &__actions {
+    flex: 1;
+    color: red;
+
+    a {
+      float: right;
+    }
+  }
+
+  &__cart {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    border-radius: 20px;
+
+    span {
+      position: absolute;
+      top: -3px;
+      right: -5px;
+      background-color: $green;
+      color: $white;
+      border-radius: 6px;
+      width: 14px;
+      height: 14px;
+      font-size: 10px;
+      text-align: center;
+    }
+
+    &:hover {
+      background-color: #7c80871c;
+    }
+  }
+}
+
+.overlay {
+  opacity: 0;
+  background-color: $white;
+  position: fixed;
+  top: 78px;
+  right: 0px;
+  left: 0px;
+  padding: 21px 0 22px 42px;
+
+  &.fade-in {
+    display: block;
+  }
+
+  > * {
+    display: block;
+  }
+
+  > *:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  a {
+    font-size: $font-xl;
+  }
+}

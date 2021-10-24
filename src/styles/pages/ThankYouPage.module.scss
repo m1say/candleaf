@@ -1,0 +1,30 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+a.gradient-link {
+  position: relative;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+
+a.gradient-link::after {
+  content: "";
+  width: 0%;
+  height: 3px;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  background: linear-gradient(45deg, #0947db, #07d89d);
+  transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+  z-index: -1;
+}
+
+a.gradient-link:hover::after {
+  width: 100%;
+}

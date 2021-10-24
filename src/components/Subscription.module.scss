@@ -1,0 +1,50 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.subscription {
+  select,
+  option,
+  span,
+  p {
+    font-size: 1rem;
+    line-height: 1rem;
+    letter-spacing: -0.9px;
+
+    @include breakpoint-down(sm) {
+      font-size: 0.9rem;
+    }
+  }
+
+  &__option {
+    border: 1px solid $white;
+    border-radius: 7px;
+    display: block;
+    padding: 10px 10px;
+
+    input {
+      margin-right: 10px;
+    }
+
+    select {
+      background-color: $white;
+      border: 1px solid #e6e6e6;
+    }
+
+    p {
+      padding-top: 7px;
+      color: $light-gray;
+
+      span {
+        color: $green;
+      }
+    }
+  }
+
+  &__info {
+    font-size: 0.9rem !important;
+  }
+
+  &__selected {
+    border: 1px solid #e6e6e6;
+  }
+}

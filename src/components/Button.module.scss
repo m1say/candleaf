@@ -1,0 +1,32 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.btn {
+  font-size: $font-med;
+  padding: 8px 2.5rem;
+  border-radius: 5px;
+  border: none;
+  transition: all 200ms ease-in-out;
+  text-align: center;
+
+  @include breakpoint-down(sm) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  &.primary {
+    background-color: $green;
+    color: $white;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: $dark-green;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $green;
+    opacity: 0.5;
+  }
+}

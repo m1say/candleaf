@@ -1,0 +1,51 @@
+@use "mixins" as *;
+@use "variables" as *;
+
+.card {
+  height: 230px;
+  width: 255px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-shadow: 0px 3px 3px 1px $almost-white;
+  border-radius: 5px;
+  transition: all 200ms ease-in-out;
+
+  &:hover {
+    box-shadow: 0px 19px 19px -4px $light-gray;
+    transform: translate3d(0, -10px, 0);
+  }
+
+  @include breakpoint-down(xs) {
+    height: 147px;
+    width: 346px;
+
+    img {
+      object-position: center 32px !important;
+    }
+  }
+  &__image {
+    padding: 0 32.5px;
+    background-color: $almost-white;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+  }
+
+  &__description {
+    padding: 10px 26px 16px;
+
+    @include breakpoint-down(xs) {
+      padding: 8px 12px 0px;
+    }
+  }
+
+  &__pricing {
+    p {
+      float: right;
+      margin: 0;
+      color: $green;
+    }
+  }
+}

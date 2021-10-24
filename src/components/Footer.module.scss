@@ -1,0 +1,76 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.footer {
+  background-color: $black;
+  color: $white;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  margin-top: auto;
+
+  p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__wrapper {
+    @include breakpoint-up(lg) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "division division"
+        "company links";
+    }
+  }
+
+  &__division {
+    grid-area: division;
+    padding-bottom: 30px;
+  }
+
+  &__company {
+    grid-area: company;
+
+    @include breakpoint-down(sm) {
+      width: 100%;
+    }
+  }
+
+  &__links {
+    grid-area: links;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+  &__link-grp {
+    width: 170px;
+    flex: 0 0 auto;
+
+    p:first-child {
+      color: $green;
+      padding-bottom: 5px;
+      margin: 0;
+    }
+
+    &--1 {
+      order: 1;
+    }
+    &--2 {
+      order: 3;
+
+      @include breakpoint-up(sm) {
+        order: 2;
+      }
+    }
+    &--3 {
+      order: 2;
+
+      @include breakpoint-up(sm) {
+        order: 3;
+      }
+    }
+  }
+}

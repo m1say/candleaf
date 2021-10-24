@@ -1,0 +1,182 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.cart {
+  &__wrapper {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    text-align: center;
+
+    > h1 {
+      font-size: 1.625rem;
+    }
+
+    > a {
+      display: block;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      font-family: Helvetica;
+      font-size: 1rem;
+      color: $green;
+      text-decoration: underline;
+    }
+  }
+
+  &__items {
+    padding-top: 2rem;
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 300;
+      font-size: $font-sm;
+      table-layout: fixed;
+
+      thead tr,
+      tbody tr {
+        border-bottom: 1px solid #e6e6e6;
+      }
+
+      thead {
+        th {
+          font-weight: 400;
+          font-style: normal;
+          padding-bottom: 13px;
+        }
+
+        th:first-child {
+          width: 40%;
+
+          @include breakpoint-down(md) {
+            width: 60%;
+          }
+          @include breakpoint-down(sm) {
+            width: 70%;
+          }
+        }
+
+        th:nth-child(2),
+        th:nth-child(3),
+        th:last-child {
+          width: auto;
+        }
+      }
+
+      th:first-child,
+      td:first-child {
+        text-align: left;
+      }
+
+      th:not(:first-child),
+      td:not(:first-child) {
+        > * {
+          margin: auto;
+        }
+      }
+
+      th:last-child,
+      td:last-child {
+        text-align: right;
+        @include breakpoint-down(md) {
+          text-align: center;
+          > * {
+            margin: auto;
+          }
+        }
+      }
+    }
+  }
+
+  &__card {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    display: grid;
+    grid-template-columns: 160px auto;
+    column-gap: 0.5rem;
+    overflow: hidden;
+
+    h1 {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 26px;
+      letter-spacing: -0.9px;
+      display: block;
+      padding-bottom: 1rem;
+    }
+
+    button {
+      color: $green;
+      text-decoration: underline;
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+      font-size: $font-sm;
+      padding: 0;
+    }
+
+    @include breakpoint-down(md) {
+      h1 {
+        font-size: $font-med;
+      }
+    }
+
+    @include breakpoint-down(sm) {
+      grid-template-columns: 130px auto;
+    }
+  }
+
+  &__image {
+    justify-self: end;
+    position: relative;
+    width: 160px;
+    height: 130px;
+    background-color: $almost-white;
+    @include breakpoint-down(sm) {
+      width: 130px;
+      height: 105px;
+    }
+  }
+  &__empty {
+    text-align: center !important;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+.footer {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 2rem;
+  align-items: center;
+
+  &__sub-total {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    span {
+      font-size: $font-l;
+      text-align: center;
+    }
+
+    span:first-child {
+      padding-right: 1rem;
+    }
+
+    p {
+      font-size: $font-sm;
+      color: $light-gray;
+    }
+  }
+
+  @include breakpoint-down(sm) {
+    flex-direction: column;
+
+    a,
+    button {
+      width: 100%;
+    }
+  }
+}
