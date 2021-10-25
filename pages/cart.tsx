@@ -60,8 +60,7 @@ const Cart = () => {
     <Layout>
       <Head>
         <title>Cart</title>
-        <meta name="description" content="Whenever I see" />
-        <link rel="icon" href="/icon.svg" />
+        <link rel="icon" href="/icons/icon.svg" />
       </Head>
 
       <section className={styles["cart"]}>

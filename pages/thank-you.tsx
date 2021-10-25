@@ -8,8 +8,7 @@ const ThankYouPage = () => {
     <div className={styles["main"]}>
       <Head>
         <title>Fin</title>
-        <meta name="description" content="Whenever I see" />
-        <link rel="icon" href="/icon.svg" />
+        <link rel="icon" href="/icons/icon.svg" />
       </Head>
       <h1>fin</h1>
       <Link href="/">

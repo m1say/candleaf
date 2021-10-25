@@ -6,6 +6,6 @@ module.exports = {
     includePaths: [path.join(__dirname, "src/styles")],
   },
   images: {
-    domains: ["candleaf.herokuapp.com"],
+    domains: ["localhost", "candleaf.herokuapp.com"],
   },
 };

@@ -46,8 +46,7 @@ const Home = ({ products, testimonials }: Props) => {
     <Layout>
       <Head>
         <title>Candleaf</title>
-        <meta name="description" content="Whenever I see" />
-        <link rel="icon" href="/icon.svg" />
+        <link rel="icon" href="/icons/icon.svg" />
       </Head>
 
       <section className={cn(styles["benefits"], "section")}>
