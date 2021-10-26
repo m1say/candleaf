@@ -7,6 +7,7 @@ A templating exercise using design found [here](https://www.figma.com/file/vFaJ6
 ## Tech Stack
 - Next.js
 - Strapi for CMS
+- Cloudinary
 
 ## Deployment
 - Vercel 
