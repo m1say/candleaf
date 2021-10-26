@@ -1,5 +1,5 @@
 import "@styles/globals.scss";
-import { CartProvider } from "src/contexts/cart-context.js";
+import { CartProvider } from "@contexts/cart-context.js";
 import type { AppProps } from "next/app";
 
 const App = ({ Component, pageProps }: AppProps) => {

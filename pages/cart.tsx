@@ -1,18 +1,18 @@
-import axios from "axios";
-
-import Layout from "src/components/Layout";
-import Quantity from "src/components/Quantity";
+import Layout from "@components/Layout";
+import Quantity from "@components/Quantity";
+import Button from "@components/Button";
 
 import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
-import Button from "src/components/Button";
-import cn from "classnames";
+
 import styles from "@styles/pages/Cart.module.scss";
+import cn from "classnames";
+
 import { useEffect, useState } from "react";
-import { useCart } from "src/contexts/cart-context.js";
-import { buildCartQuery } from "src/utils/products";
-import { fetchProducts } from "src/api/products";
+import { useCart } from "@contexts/cart-context.js";
+import { buildCartQuery } from "@utils/products.js";
+import { fetchProducts } from "@api/products.js";
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
@@ -84,7 +84,7 @@ const Cart = () => {
                 {cartCount
                   ? products.map(
                       ({
-                        title,
+                        name,
                         price,
                         image: { url, height, width, alt },
                         slug,
@@ -102,7 +102,7 @@ const Cart = () => {
                                 />
                               </div>
                               <div>
-                                <h1>{title}</h1>
+                                <h1>{name}</h1>
                                 <button onClick={() => removeItem(slug)}>
                                   Remove
                                 </button>
@@ -148,8 +148,6 @@ const Cart = () => {
                               <div className={styles["cart__image"]}>
                                 <Image
                                   src={url}
-                                  height={height}
-                                  width={width}
                                   layout="fill"
                                   objectFit="contain"
                                   alt={alt}

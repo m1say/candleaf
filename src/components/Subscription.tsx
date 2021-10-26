@@ -1,4 +1,4 @@
-import styles from "src/components/Subscription.module.scss";
+import styles from "@components/Subscription.module.scss";
 import cn from "classnames";
 import { useState } from "react";
 const Subscription = () => {

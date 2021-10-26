@@ -8,10 +8,10 @@ const Testimonial = ({
   rating,
   avatar: { url, height, width, alt },
 }) => {
-  const ratingElement = (
-    <Image src="/icons/star.svg" height={24} width={24} alt="star" />
+  const starElement = (key: number) => (
+    <Image key={key} src="/icons/star.svg" height={24} width={24} alt="star" />
   );
-  const fullStarGroup = Array(Math.floor(rating)).fill(ratingElement);
+  const fullStarGroup = Array(Math.floor(rating)).fill(undefined);
   return (
     <div className={styles["testimonial"]}>
       <div className={styles["testimonial__avatar"]}>
@@ -30,7 +30,7 @@ const Testimonial = ({
             "flex flex-ai-c flex-jc-c"
           )}
         >
-          {fullStarGroup}
+          {fullStarGroup.map((_, index) => starElement(index))}
           {rating % 1 == 0.5 && (
             <Image
               src="/icons/star-partial.svg"

@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import Layout from "src/components/Layout";
-import Button from "src/components/Button";
-import Card from "src/components/Card";
-import Testimonial from "src/components/Testimonial";
+import Layout from "@components/Layout";
+import Button from "@components/Button";
+import Card from "@components/Card";
+import Testimonial from "@components/Testimonial";
 
 import Head from "next/head";
 import Image from "next/image";
@@ -11,8 +11,8 @@ import cn from "classnames";
 
 import styles from "@styles/pages/Home.module.scss";
 
-import { fetchProducts } from "src/api/products";
-import { fetchTestimonials } from "src/api/testimonials";
+import { fetchProducts } from "@api/products";
+import { fetchTestimonials } from "@api/testimonials";
 import { Product } from "src/interfaces/product";
 import { Testimonial as TestimonialType } from "src/interfaces/testimonial";
 import { GetStaticProps } from "next";
@@ -87,12 +87,14 @@ const Home = ({ products, testimonials }: Props) => {
               </div>
             ))}
           </div>
-          <Link href="#products" passHref>
-            <Button
-              className={styles["benefits__cta"]}
-              primary
-              text="View products"
-            />
+          <Link href="#products">
+            <a>
+              <Button
+                className={styles["benefits__cta"]}
+                primary
+                text="View products"
+              />
+            </a>
           </Link>
         </div>
       </section>
@@ -104,10 +106,10 @@ const Home = ({ products, testimonials }: Props) => {
         <h1 className="header">Products</h1>
         <p>Order it for you or for your beloved ones</p>
         <div className={styles["products__grid"]}>
-          {products.map(({ title, slug, price, image }) => (
+          {products.map(({ name, slug, price, image }) => (
             <Card
               key={slug}
-              title={title}
+              name={name}
               slug={slug}
               price={price}
               image={image}
@@ -139,6 +141,7 @@ const Home = ({ products, testimonials }: Props) => {
 export const getStaticProps: GetStaticProps = async () => {
   const products = await fetchProducts();
   const testimonials = await fetchTestimonials();
+  // const testimonials = [];
   return {
     props: { products, testimonials },
   };

@@ -3,13 +3,15 @@ import { formatImageURL } from "../utils/products";
 import axios from "axios";
 
 const fieldResolver = ({
-  title,
+  name,
   price,
   slug,
-  image: { url, height, width, alternativeText: alt },
+  photo: {
+    img: { url, height, width, alternativeText: alt },
+  },
 }) => {
   return {
-    title,
+    name,
     price,
     slug,
     image: { url: formatImageURL(url), height, width, alt },

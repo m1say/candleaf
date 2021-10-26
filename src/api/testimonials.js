@@ -6,7 +6,9 @@ const fieldResolver = ({
   owner,
   text,
   rating,
-  avatar: { url, height, width, alternativeText: alt },
+  avatar: {
+    img: { url, height, width, alternativeText: alt },
+  },
 }) => {
   return {
     owner,

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "src/components/Quantity.module.scss";
+import styles from "@components/Quantity.module.scss";
 
 interface Props {
   initial?: number;

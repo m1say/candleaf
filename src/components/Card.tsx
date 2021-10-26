@@ -1,11 +1,13 @@
-import Image from "next/image";
-import styles from "./Card.module.scss";
-import Link from "next/link";
-import cn from "classnames";
 import { Product } from "src/interfaces/product";
 
+import Image from "next/image";
+import Link from "next/link";
+
+import styles from "./Card.module.scss";
+import cn from "classnames";
+
 const Card = ({
-  title,
+  name,
   price,
   slug,
   image: { url, height, width, alt },
@@ -27,7 +29,7 @@ const Card = ({
             />
           </div>
           <div className={styles["card__description"]}>
-            <div className={styles["card__name"]}>{title}</div>
+            <div className={styles["card__name"]}>{name}</div>
             <div className={styles["card__pricing"]}>
               <p>${price}</p>
             </div>

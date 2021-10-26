@@ -1,19 +1,19 @@
 import axios from "axios";
 
-import Layout from "src/components/Layout";
-import Quantity from "src/components/Quantity";
-import Subscription from "src/components/Subscription";
+import Layout from "@components/Layout";
+import Quantity from "@components/Quantity";
+import Subscription from "@components/Subscription";
 
 import Head from "next/head";
 import Image from "next/image";
-import Button from "src/components/Button";
+import Button from "@components/Button";
 import cn from "classnames";
 import styles from "@styles/pages/ProductPage.module.scss";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { useCart } from "src/contexts/cart-context";
+import { useCart } from "@contexts/cart-context";
 
-import { getProduct, fetchProducts } from "src/api/products";
+import { getProduct, fetchProducts } from "@api/products";
 import { Product } from "src/interfaces/product";
 import { GetServerSideProps } from "next";
 
@@ -46,7 +46,7 @@ interface Props {
 
 const ProductPage = ({ product }: Props) => {
   const {
-    title,
+    name,
     price,
     slug,
     image: { url, height, width, alt },
@@ -81,7 +81,7 @@ const ProductPage = ({ product }: Props) => {
               alt={alt}
             />
           </div>
-          <p className={styles["product__title"]}>{title} Candleaf</p>
+          <p className={styles["product__title"]}>{name} Candleaf</p>
           <div className={styles["product__purchase"]}>
             <div className={styles["product__options"]}>
               <div className={styles["product__order"]}>

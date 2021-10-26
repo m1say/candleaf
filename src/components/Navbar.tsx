@@ -4,7 +4,7 @@ import styles from "./Navbar.module.scss";
 import cn from "classnames";
 import { useRef } from "react";
 
-import { useCart } from "src/contexts/cart-context";
+import { useCart } from "@contexts/cart-context";
 
 const Navbar = () => {
   const header = useRef(null);

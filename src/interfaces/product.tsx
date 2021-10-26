@@ -1,7 +1,7 @@
 import { Image } from "./generics";
 
 export interface Product {
-  title: string;
+  name: string;
   price: string;
   slug: string;
   image: Image;
