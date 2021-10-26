@@ -8,10 +8,13 @@
 
 .header {
   background-color: $white;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 2;
+
+  @include breakpoint-down(md) {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+  }
 
   &.open {
     .header__toggle {
