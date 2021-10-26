@@ -7,6 +7,12 @@
 }
 
 .header {
+  background-color: $white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+
   &.open {
     .header__toggle {
       > span:first-child {
@@ -108,7 +114,7 @@
   opacity: 0;
   background-color: $white;
   position: fixed;
-  top: 78px;
+  top: 65px;
   right: 0px;
   left: 0px;
   padding: 21px 0 22px 42px;

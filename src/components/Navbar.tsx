@@ -28,18 +28,17 @@ const Navbar = () => {
     <header ref={header} className={cn(styles["header"], "inner-container")}>
       <div ref={overlay} className={cn(styles["overlay"], "fade-animation")}>
         <Link href="/#products">
-          <a>Shop</a>
+          <a onClick={toggleHamburger}>Shop</a>
         </Link>
         <Link href="#">
-          <a>About</a>
+          <a onClick={toggleHamburger}>About</a>
         </Link>
         <Link href="#">
-          <a>Contact Us</a>
+          <a onClick={toggleHamburger}>Contact Us</a>
         </Link>
       </div>
       <nav className={cn(styles["nav"], "flex flex-jc-sb flex-ai-c")}>
         <a
-          href="#"
           className={cn(styles["header__toggle"], "hide-for-desktop")}
           onClick={toggleHamburger}
         >
