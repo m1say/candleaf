@@ -1,0 +1,69 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.checkout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+
+  @include breakpoint-down(md) {
+    grid-template-columns: 1fr;
+  }
+
+  &__shipping {
+    padding: 20px;
+    margin: 0 auto;
+
+    input {
+      border: 1px solid #e6e6e6;
+      padding: 7px 17px;
+      font-size: 14px;
+      line-height: 26px;
+      margin: 6px;
+      margin-left: 0;
+      width: 100%;
+    }
+
+    form {
+      width: 445px;
+      margin: 1rem 0;
+    }
+
+    &-header {
+      padding-top: 1.5rem;
+      font-size: 20px;
+    }
+
+    .btn {
+      margin-top: 1.5rem;
+      font-size: $font-med;
+      padding: 8px 2.5rem;
+      border-radius: 5px;
+      border: none;
+      transition: all 200ms ease-in-out;
+      text-align: center;
+      background-color: $green;
+      color: $white;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $dark-green;
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        background-color: $green;
+        opacity: 0.5;
+      }
+    }
+
+    a {
+      text-decoration: underline;
+      color: $green;
+    }
+  }
+
+  &__summary {
+    background-color: #e6e6e6;
+  }
+}

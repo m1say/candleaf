@@ -19,32 +19,30 @@ const Cart = () => {
   const [subTotal, setSubTotal] = useState(0);
   const { cartItems, cartCount, addOrUpdateItem, removeItem } = useCart();
 
-  const populateCart = async () => {
-    if (cartCount === 0) {
-      setProducts([]);
-      return;
-    }
-    const query = buildCartQuery(cartItems);
-    const res = await fetchProducts(query);
-    setProducts(res);
-  };
-
-  const computeTotal = () => {
-    const sum = products.reduce((accum, { price, slug }) => {
-      return accum + price * cartItems[slug];
-    }, 0);
-    setSubTotal(sum.toFixed(2));
-  };
-
   const updateQuantity = (quantity: number, slug: string) => {
     addOrUpdateItem(slug, quantity, true);
   };
 
   useEffect(() => {
+    const populateCart = async () => {
+      if (cartCount === 0) {
+        setProducts([]);
+        return;
+      }
+      const query = buildCartQuery(cartItems);
+      const res = await fetchProducts(query);
+      setProducts(res);
+    };
     populateCart();
-  }, [cartCount]);
+  }, [cartCount, cartItems]);
 
   useEffect(() => {
+    const computeTotal = () => {
+      const sum = products.reduce((accum, { price, slug }) => {
+        return accum + price * cartItems[slug];
+      }, 0);
+      setSubTotal(sum.toFixed(2));
+    };
     computeTotal();
   }, [products, cartItems]);
 
@@ -182,9 +180,9 @@ const Cart = () => {
               <span> ${subTotal} </span>
               <p>Tax and shipping will be calculated later</p>
             </div>
-            <Link href="/thank-you">
+            <Link href="/checkout">
               <a>
-                <Button disabled={!cartCount} primary text="Checkout" />
+                <Button disabled={!products.length} primary text="Checkout" />
               </a>
             </Link>
           </div>
